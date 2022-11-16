@@ -15,13 +15,15 @@ const Form = () => {
         })
     })
 
-    useEffect(() =>{
+    useEffect(
+        () => {
         if(!city && !country){
             tg.MainButton.hide();
         }else {
             tg.MainButton.show();
         }
-    })
+    }, [country, city, tg])
+
 
     const onChangeCounty = (e) =>{
         setCountry(e.target.value)
