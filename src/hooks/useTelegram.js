@@ -1,7 +1,6 @@
 const tg = window.Telegram.WebApp;
 
 export function useTelegram(){
-    const tg = window.Telegram.WebApp;
 
     const onClose = () =>{
         tg.close()
@@ -12,9 +11,6 @@ export function useTelegram(){
             tg.MainButton.hide();
         }else {
             tg.MainButton.show();
-
-
-
         }
     }
 
