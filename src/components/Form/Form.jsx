@@ -59,7 +59,7 @@ const Form = () => {
                 className={'input'}
                 type="text"
                 placeholder={'ss'}
-                value={user}
+                value={user?.username}
                 onChange={onChangeCountry}
             />
             <input
