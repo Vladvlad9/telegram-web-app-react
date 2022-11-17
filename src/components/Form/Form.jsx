@@ -125,16 +125,16 @@ const Form = () => {
 
             <select value={position} onChange={onChangePosition} className={'select'}>
                 <option value="" hidden>Выбрать</option>
-                <optgroup label="Семейство «Тыквенные»">
-                    <option value={'1'}>Арбуз</option>
-                    <option value={'2'}>Дыня</option>
-                    <option value={'3'}>Тыква</option>
+                <optgroup label="Бар»">
+                    <option value={'1'}>Бармен</option>
+                    <option value={'2'}>Сомелье</option>
+                    <option value={'3'}>Помощник</option>
                 </optgroup>
-                <optgroup label="Семейство «Паслёновые»">
-                    <option value={'5'}>Баклажан</option>
-                    <option value={'6'}>Картофель</option>
-                    <option value={'7'}>Томат</option>
-                    <option value={'8'}>Перец стручковый</option>
+                <optgroup label="Менеджмент">
+                    <option value={'5'}>Управляющий</option>
+                    <option value={'6'}>Заместитель</option>
+                    <option value={'7'}>Бар-Менеджер</option>
+                    <option value={'8'}>Шеф-Сомелье</option>
                 </optgroup>
             </select>
 
