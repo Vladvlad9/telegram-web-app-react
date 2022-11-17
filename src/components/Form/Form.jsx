@@ -3,7 +3,7 @@ import './Form.css'
 import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
-    const {user} = useTelegram()
+    const {user, onClose} = useTelegram();
 
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
@@ -53,7 +53,9 @@ const Form = () => {
     }
 
     return (
+
         <div className={"form"}>
+            <button onClick={onClose}>Закрыть</button>
             <h3>Введите ваши данные</h3>
             <input
                 className={'input'}
