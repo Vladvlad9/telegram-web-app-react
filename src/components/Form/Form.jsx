@@ -4,7 +4,7 @@ import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
     const {user, onClose} = useTelegram();
-
+    const a = user.name
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
     const [subject, setSubject] = useState('physical');
@@ -60,8 +60,8 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={user?.username}
-                value={country}
+                placeholder={'asd'}
+                value={a}
                 onChange={onChangeCountry}
             />
             <input
