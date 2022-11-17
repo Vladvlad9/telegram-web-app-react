@@ -60,7 +60,7 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'as'}
+                placeholder={user?.username}
                 value={country}
                 onChange={onChangeCountry}
             />
