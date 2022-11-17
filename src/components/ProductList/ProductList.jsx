@@ -61,7 +61,7 @@ const ProductList = () => {
                 className={'input'}
                 type="text"
                 placeholder={'ss'}
-                value={user?.username}
+                value={user?.first_name}
                 onChange={onChangeCountry}
             />
             <input
