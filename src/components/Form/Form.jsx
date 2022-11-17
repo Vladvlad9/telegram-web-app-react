@@ -58,8 +58,8 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={user}
-                value={country}
+                placeholder={'ss'}
+                value={user}
                 onChange={onChangeCountry}
             />
             <input
