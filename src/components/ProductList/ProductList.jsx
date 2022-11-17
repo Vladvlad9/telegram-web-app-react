@@ -5,7 +5,7 @@ import {useCallback, useEffect, useState} from "react";
 
 
 const ProductList = () => {
-    const {user} = useTelegram()
+    const {user} = useTelegram();
 
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
@@ -61,7 +61,7 @@ const ProductList = () => {
                 className={'input'}
                 type="text"
                 placeholder={'ss'}
-                value={user}
+                value={user?.username}
                 onChange={onChangeCountry}
             />
             <input
