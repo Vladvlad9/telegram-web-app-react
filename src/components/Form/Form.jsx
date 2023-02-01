@@ -36,7 +36,7 @@ const Form = () => {
 
 
     useEffect(() => {
-        if(!Lname || !Fname || Mname || Restaurant) {
+        if(!Lname || !Fname || !Mname || !Restaurant) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
