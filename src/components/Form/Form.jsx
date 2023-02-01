@@ -76,7 +76,7 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Фамилия'}
+                placeholder={'Имя'}
                 value={Fname}
                 onChange={onChangeFname}
             />
@@ -84,7 +84,7 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Фамилия'}
+                placeholder={'Отчество'}
                 value={Mname}
                 onChange={onChangeMname}
             />
@@ -92,7 +92,7 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Фамилия'}
+                placeholder={'Ресторан'}
                 value={Restaurant}
                 onChange={onChangeRestaurant}
             />
