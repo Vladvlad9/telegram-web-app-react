@@ -18,7 +18,7 @@ const Form = () => {
             Restaurant
         }
         tg.sendData(JSON.stringify(data));
-    }, [Lname, Fname, Mname, Restaurant])
+    }, [Lname, Fname, Mname, Restaurant, tg])
 
 
     useEffect(() => {
