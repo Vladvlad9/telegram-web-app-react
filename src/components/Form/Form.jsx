@@ -8,7 +8,8 @@ const Form = () => {
     const [Fname, setFname] = useState('');
     const [Mname, setMname] = useState('');
     const [Restaurant, setRestaurant] = useState('');
-
+    const {tg} = useTelegram();
+    
     const onSendData = useCallback(() => {
         const data = {
             Lname,
