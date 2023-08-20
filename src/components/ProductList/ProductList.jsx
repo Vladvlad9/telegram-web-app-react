@@ -2,6 +2,7 @@ import React from 'react';
 import './ProductList.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect, useState} from "react";
+import parsePhoneNumber from 'libphonenumber-js'
 
 
 const ProductList = () => {
