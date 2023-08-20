@@ -3,23 +3,32 @@ import './ProductList.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect, useState} from "react";
 
+import { isValidPhoneNumber, parsePhoneNumber } from 'libphonenumber-js'
 
 const ProductList = () => {
     const {user} = useTelegram();
 
-    const [country, setCountry] = useState('');
-    const [street, setStreet] = useState('');
-    const [subject, setSubject] = useState('physical');
+    const [fName, setFName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [time, setTime] = useState('');
     const {tg} = useTelegram();
+
+    const convertPhoneNumber = (inp) => {
+          if (isValidPhoneNumber(inp, 'RU')) {
+            const phoneNumber = parsePhoneNumber(inp, 'RU')
+            return phoneNumber.formatNational()
+          }
+          return inp
+    }
 
     const onSendData = useCallback(() => {
         const data = {
-            country,
-            street,
-            subject
+            fName,
+            phone,
+            time
         }
         tg.sendData(JSON.stringify(data));
-    }, [country, street, subject, tg])
+    }, [fName, phone, time, tg])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -35,23 +44,24 @@ const ProductList = () => {
     }, [tg])
 
     useEffect(() => {
-        if(!street || !country) {
+        if(!fName || !phone || !time) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [country, street, tg])
+    }, [fName, phone, time, tg])
 
-    const onChangeCountry = (e) => {
-        setCountry(e.target.value)
+    const onChangeFName = (e) => {
+        setFName(e.target.value)
     }
 
-    const onChangeStreet = (e) => {
-        setStreet(e.target.value)
+    const onChangePhone = (e) => {
+        setPhone(e.target.value)
+        convertPhoneNumber(e.target.value)
     }
 
-    const onChangeSubject = (e) => {
-        setSubject(e.target.value)
+    const onChangeTime = (e) => {
+        setTime(e.target.value)
     }
 
     return (
@@ -61,20 +71,27 @@ const ProductList = () => {
                 className={'input'}
                 type="text"
                 placeholder={'ss'}
-                value={user?.first_name}
-                onChange={onChangeCountry}
+                value={user?.fName}
+                onChange={onChangeFName}
             />
+
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Улица'}
-                value={street}
-                onChange={onChangeStreet}
+                placeholder={'Номер телефона'}
+                value={phone}
+                onChange={onChangePhone}
             />
-            <select value={subject} onChange={onChangeSubject} className={'select'}>
-                <option value={'physical'}>Физ. лицо</option>
-                <option value={'legal'}>Юр. лицо</option>
-            </select>
+
+
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'К какому времени вы хотели бы забрать заказ?'}
+                value={time}
+                onChange={onChangeTime}
+            />
+
         </div>
     );
 };
