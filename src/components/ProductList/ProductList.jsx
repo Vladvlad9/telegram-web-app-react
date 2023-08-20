@@ -3,7 +3,6 @@ import './ProductList.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect, useState} from "react";
 
-import { isValidPhoneNumber, parsePhoneNumber } from 'libphonenumber-js'
 
 const ProductList = () => {
     const {user} = useTelegram();
@@ -13,13 +12,6 @@ const ProductList = () => {
     const [time, setTime] = useState('');
     const {tg} = useTelegram();
 
-    const convertPhoneNumber = (inp) => {
-          if (isValidPhoneNumber(inp, 'RU')) {
-            const phoneNumber = parsePhoneNumber(inp, 'RU')
-            return phoneNumber.formatNational()
-          }
-          return inp
-    }
 
     const onSendData = useCallback(() => {
         const data = {
@@ -57,7 +49,6 @@ const ProductList = () => {
 
     const onChangePhone = (e) => {
         setPhone(e.target.value)
-        convertPhoneNumber(e.target.value)
     }
 
     const onChangeTime = (e) => {
